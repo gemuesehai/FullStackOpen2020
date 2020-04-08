@@ -10,6 +10,8 @@ const Stat = ({name, number}) => <p>{name} {number}</p>
 const Statistics = ({good, neutral, bad}) => {
   const total = good + neutral + bad
 
+  if (total === 0) return <div>No feedback given</div>
+
   return (
     <div>
       <Stat name = "good" number = {good} />
