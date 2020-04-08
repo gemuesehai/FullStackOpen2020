@@ -26,6 +26,9 @@ const App = () => {
       <Stat name = "good" number = {good} />
       <Stat name = "neutral" number = {neutral} />
       <Stat name = "bad" number = {bad} />
+      <Stat name = "all" number = {good + neutral + bad} />
+      <Stat name = "avg" number = {(good-bad)/(good+neutral+bad)} />
+      <Stat name = "pos" number = {good/(good+neutral+bad)} />
     </div>
   )
 }
