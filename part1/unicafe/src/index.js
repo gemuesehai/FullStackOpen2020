@@ -5,7 +5,7 @@ const Title = ({title}) => <h1>{title}</h1>
 const Button = ({handleClick, text}) => (
   <button onClick={handleClick}>{text}</button>
 )
-const Stat = ({name, number}) => <p>{name} {number}</p>
+const Stat = ({name, number}) => <tr><td>{name}</td><td>{number}</td></tr>
 
 const Statistics = ({good, neutral, bad}) => {
   const total = good + neutral + bad
@@ -13,14 +13,14 @@ const Statistics = ({good, neutral, bad}) => {
   if (total === 0) return <div>No feedback given</div>
 
   return (
-    <div>
+    <table><tbody>
       <Stat name = "good" number = {good} />
       <Stat name = "neutral" number = {neutral} />
       <Stat name = "bad" number = {bad} />
       <Stat name = "all" number = {total} />
       <Stat name = "avg" number = {(good - bad) / total} />
-      <Stat name = "pos" number = {good / total} />
-    </div>  
+      <Stat name = "pos" number = {(good * 100 / total).toFixed(1) + "%"} />
+      </tbody></table>  
   )
 }
 
